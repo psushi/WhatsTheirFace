@@ -2,3 +2,9 @@ body {
 	font-family: "Raleway";
 	font-size: 22px;
 }
+
+
+.purp_highlight {
+	fill:#ec008c;
+	opacity: 1;
+}

@@ -9,34 +9,122 @@
 </head>
 
 <body>
-	<h1 style="text-align:left;margin:30px;padding-top: 30px"> WhatsTheirFace</h1>
-	<svg viewBox="0 0 100 100">
-		<circle class="yellow" cx="80" cy="20" r="13" stroke="transparent" stroke-width="3" fill="rgb(239,207,28)"/>
-  		<circle class="purple" cx="22" cy="20" r="13" stroke="transparent" stroke-width="3" fill="rgb(140,50,255)"/>
-  		<circle class="pink" cx="51" cy="20"r="13" stroke="transparent" stroke-width="3" fill=" rgb(255,90,180)"/>
-	</svg>
+	<h1 style="text-align:left;margin:30px;padding-top: 60px"> WhatsTheirFace</h1>
 
-	<p id="coords" style="text-align:center;"></p>
+	<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+		<style>
+			
+			svg g:hover .purplabel {display: block;}
+			svg g:hover .pinklabel {display: block;}
+			svg g:hover .yelabel {display: block;}
+
+			.purple {
+				stroke=transparent;
+				stroke-width=3;
+				fill:rgb(140,50,255);
+
+
+			}
+			.yellow{
+				stroke="transparent";
+				stroke-width="3";
+				fill:rgb(239,207,28);
+			}
+			.pink {
+				stroke=transparent;
+				stroke-width=3;
+				fill:rgb(255,90,180);
+			}
+
+			.purp-highlight {
+				fill:#ec008c;
+				opacity: 1;
+			}
+			.purplabel{
+				font-size: 3px;
+				text-anchor: middle;
+				fill: white;
+				dominant-baseline: middle;
+				display:none;
+			}
+
+			.yelabel {
+				font-size: 3px;
+				text-anchor: middle;
+				fill: white;
+				dominant-baseline: middle;
+				display: none;
+			}
+
+			.pinklabel {
+				font-size: 3px;
+				text-anchor: middle;
+				fill: white;
+				dominant-baseline: middle;
+				display: none;
+			}
 
 
 
 
 
 
+		</style>
+		<g>
+			
+			<circle id="circ3" class="pink" cx="51" cy="20"r="13" />
+			
+	  		
+	  		<text class="pinklabel" x="51" y="20">Verify</text>
+	  		<text class="purplabel" x="22" y="20">Upload Image</text>
+	  	</g>
+
+	  	<g>
+	  		<circle id="circ2" class="purple" cx="22" cy="20" r="13"/>
+	  		
+	  		<text class="purplabel" x="22" y="20">Upload Image</text>
+	  	</g>
+
+	  	<g>
+	  		
+	  		<circle id="circ1" class="yellow" cx="80" cy="20" r="13"/>
+	  		<text class="yelabel" x="80" y="20"> Database</text>
+	  	</g>
 
 
+
+
+
+	  	
+  		
+
+	
 	<script>
-		function whoohoo(){
-			alert("whoohoo")
-		}
-		function coords(event){
-			var x = event.clientX
-			var y = event.clientY
-			var coords = "X:" + x +"  Y:" + y 
-			document.getElementById("coords").innerHTML = coords  
-		}
-	</script>
+	var purplcirc = document.getElementsByClassName("purple");
+	var yellowcirc = document.getElementsByClassName("yellow");
+	var pinkcirc = document.getElementsByClassName("pink");
 
+	/*yellowcirc[0].addEventListener('mouseover',purpEffect);
+	yellowcirc[0].addEventListener('mouseout',purpNoEffect);*/
+
+	function purpEffect(){
+
+		this.classList.add("purp-highlight");
+	}
+
+	function purpNoEffect(){
+		this.classList.remove("purp-highlight");
+	}
+
+	</script>
+</svg>
+
+
+
+
+
+
+	
 
 
 
