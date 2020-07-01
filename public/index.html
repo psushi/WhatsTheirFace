@@ -17,28 +17,11 @@
 	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
 	
 
-	<script>
-	  // Your web app's Firebase configuration
-	  var firebaseConfig = {
-	    apiKey: "AIzaSyBTaqQ-aTQQm-mT5U7gdvnldImVLHQ4agg",
-	    authDomain: "whatstheirface-f19b7.firebaseapp.com",
-	    databaseURL: "https://whatstheirface-f19b7.firebaseio.com",
-	    projectId: "whatstheirface-f19b7",
-	    storageBucket: "whatstheirface-f19b7.appspot.com",
-	    messagingSenderId: "371386438968",
-	    appId: "1:371386438968:web:9fe73b273276e8c9fcddcd",
-	    measurementId: "G-D6QTKSBVV9"
-	  };
-	  // Initialize Firebase
-	  firebase.initializeApp(firebaseConfig);
-	  firebase.analytics();
-	</script>
-
-
+	
 
 	<h1 style="text-align:left;margin:30px;padding-top: 60px"> WhatsTheirFace</h1>
 
-	<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+	<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
 		<style>
 			
 			svg g:hover .purplabel {display: block;}
@@ -49,6 +32,7 @@
 				stroke=transparent;
 				stroke-width=3;
 				fill:rgb(140,50,255);
+				
 
 
 			}
@@ -90,12 +74,6 @@
 				dominant-baseline: middle;
 				display: none;
 			}
-
-
-
-
-
-
 		</style>
 		<g>
 			
@@ -116,45 +94,54 @@
 	  		
 	  		<circle id="circ1" class="yellow" cx="80" cy="20" r="13"/>
 	  		<text class="yelabel" x="80" y="20"> Database</text>
-	  	</g>
+		</g>
+		  
 
+		<script>
+		var purplcirc = document.getElementsByClassName("purple");
+		var yellowcirc = document.getElementsByClassName("yellow");
+		var pinkcirc = document.getElementsByClassName("pink");
 
+		/*yellowcirc[0].addEventListener('mouseover',purpEffect);
+		yellowcirc[0].addEventListener('mouseout',purpNoEffect);*/
 
+		function purpEffect(){
 
+			this.classList.add("purp-highlight");
+		}
 
-	  	
-  		
+		function purpNoEffect(){
+			this.classList.remove("purp-highlight");
+		}
 
-	
+		</script>
+	</svg>
+
+	<button><a href="loginpage.html">Login page</a></button>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+		https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
 	<script>
-	var purplcirc = document.getElementsByClassName("purple");
-	var yellowcirc = document.getElementsByClassName("yellow");
-	var pinkcirc = document.getElementsByClassName("pink");
-
-	/*yellowcirc[0].addEventListener('mouseover',purpEffect);
-	yellowcirc[0].addEventListener('mouseout',purpNoEffect);*/
-
-	function purpEffect(){
-
-		this.classList.add("purp-highlight");
-	}
-
-	function purpNoEffect(){
-		this.classList.remove("purp-highlight");
-	}
-
+	// Your web app's Firebase configuration
+	var firebaseConfig = {
+		apiKey: "AIzaSyBTaqQ-aTQQm-mT5U7gdvnldImVLHQ4agg",
+		authDomain: "whatstheirface-f19b7.firebaseapp.com",
+		databaseURL: "https://whatstheirface-f19b7.firebaseio.com",
+		projectId: "whatstheirface-f19b7",
+		storageBucket: "whatstheirface-f19b7.appspot.com",
+		messagingSenderId: "371386438968",
+		appId: "1:371386438968:web:9fe73b273276e8c9fcddcd",
+		measurementId: "G-D6QTKSBVV9"
+	};
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+	firebase.analytics();
 	</script>
-</svg>
-
-
-
-
-
-
-	
-
-
-
 </body>
 </html>
 

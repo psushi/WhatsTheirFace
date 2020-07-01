@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href ="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="loginstyle.css" rel="stylesheet">
+        <title>login page</title>
+    </head>
+    <body>
+
+        <div class="main-div">
+            <h1 style="text-align: center;">WhatsTheirFace</h1>
+            <input type="email" placeholder="Email"/>
+            <input type="password" placeholder="Password"/>
+            <a href="index.html"><button>Login To Account</button></a>
+        </div>
+
+
+        <div class="loggedin-div">
+            <h3> Welcome User</h3>
+            <p> You are logged into WhatsTheirFace</p>
+            <button onclick="login_alert()"> Logout</button>
+
+        </div>
+
+    
+
+                <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBTaqQ-aTQQm-mT5U7gdvnldImVLHQ4agg",
+            authDomain: "whatstheirface-f19b7.firebaseapp.com",
+            databaseURL: "https://whatstheirface-f19b7.firebaseio.com",
+            projectId: "whatstheirface-f19b7",
+            storageBucket: "whatstheirface-f19b7.appspot.com",
+            messagingSenderId: "371386438968",
+            appId: "1:371386438968:web:9fe73b273276e8c9fcddcd",
+            measurementId: "G-D6QTKSBVV9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        </script>
+
+        
+        <script src="scripts/login.js"></script>
+      
+     
+    </body>
+</html>
