@@ -9,6 +9,32 @@
 </head>
 
 <body>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+	<script>
+	  // Your web app's Firebase configuration
+	  var firebaseConfig = {
+	    apiKey: "AIzaSyBTaqQ-aTQQm-mT5U7gdvnldImVLHQ4agg",
+	    authDomain: "whatstheirface-f19b7.firebaseapp.com",
+	    databaseURL: "https://whatstheirface-f19b7.firebaseio.com",
+	    projectId: "whatstheirface-f19b7",
+	    storageBucket: "whatstheirface-f19b7.appspot.com",
+	    messagingSenderId: "371386438968",
+	    appId: "1:371386438968:web:9fe73b273276e8c9fcddcd",
+	    measurementId: "G-D6QTKSBVV9"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	</script>
+
+
+
 	<h1 style="text-align:left;margin:30px;padding-top: 60px"> WhatsTheirFace</h1>
 
 	<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
