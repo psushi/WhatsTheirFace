@@ -4,23 +4,31 @@
         <link href ="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link href="loginstyle.css" rel="stylesheet">
         <title>login page</title>
+        <script src="scripts/login.js" defer></script>
     </head>
     <body>
 
-        <div class="main-div">
+        <div id="login-div" class="main-div">
             <h1 style="text-align: center;">WhatsTheirFace</h1>
-            <input type="email" placeholder="Email"/>
-            <input type="password" placeholder="Password"/>
-            <a href="index.html"><button>Login To Account</button></a>
+            <input type="email" placeholder="Email" id="email_field"/>
+            <input type="password" placeholder="Password" id="password_field"/>
+            <button onclick="login_alert()">Login To Account</button>
+            <br>
+            <br>
+            <br>
+            
+
         </div>
 
 
-        <div class="loggedin-div">
+        <div id="user-div" class="loggedin-div">
             <h3> Welcome User</h3>
-            <p> You are logged into WhatsTheirFace</p>
-            <button onclick="login_alert()"> Logout</button>
+            <p id="user-para"> You are logged into WhatsTheirFace</p>
+            <button onclick="logout()">Logout</button>
+            
 
         </div>
+        <a href="index.html"><button>go to main page</button></a>
 
     
 
@@ -30,6 +38,8 @@
         <!-- TODO: Add SDKs for Firebase products that you want to use
             https://firebase.google.com/docs/web/setup#available-libraries -->
         <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+
 
         <script>
         // Your web app's Firebase configuration
@@ -48,8 +58,8 @@
         firebase.analytics();
         </script>
 
+
         
-        <script src="scripts/login.js"></script>
       
      
     </body>

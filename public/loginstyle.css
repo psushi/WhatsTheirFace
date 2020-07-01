@@ -13,6 +13,7 @@ body {
 input, button {
     font-family: "Raleway";
     font-weight: 700;
+    font-size: 20px;
 
 }
 
@@ -22,7 +23,8 @@ input, button {
     margin-top:150px;
     padding:100px;
     background-color:#fff;
-    border: 10px solid rgb(22, 20, 20)
+    border: 10px solid rgb(22, 20, 20);
+    display: none;
     
 }
 
