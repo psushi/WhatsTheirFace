@@ -7,7 +7,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 
       if(user!=null){
           var email = user.email;
-          var email_verified = user.emailVerified; 
+          var email_verified = user.emailVerified;
+
+          if(email_verified!=false){
+
+            document.getElementById("verification").style.display = "none";
+            
+          }
       }
 
       document.getElementById("user-para").innerHTML =  email;
