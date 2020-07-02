@@ -2,10 +2,11 @@
 <html>
 <head>
 	<link href ="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-	<link href = "styles.css" rel="stylesheet">
+	<link href = "styling/styles.css" rel="stylesheet">
 	<title style ="text-align-last: left;"> WhatsTheirFace</title>
 	<link rel="shortcut icon" href="icons/favicon-16x16.png" sizes="16x16" type="image/png">
 	<link rel="shortcut icon" href="icons/favicon-32x32.png" sizes="32x32" type="image/png">
+	<script src="scripts/main.js" defer></script>
 </head>
 
 <body style="border: 10px solid black;">
@@ -24,36 +25,70 @@
 	<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
 		<style>
 			
-			svg g:hover .purplabel {
+			svg g:hover .purplabel 
+			{
 				display: block;
-				fill: white;
+				fill: rgb(140,50,255);
 			}
-			svg g:hover .pinklabel {display: block;}
-			svg g:hover .yelabel {display: block;}
-
-			.purple {
-				stroke=transparent;
-				stroke-width=3;
-				fill:rgb(140,50,255);
-				
-
-
+			svg g:hover .pinklabel {
+				display: block;
+				fill: rgb(255,90,180);
 			}
-			.yellow{
-				stroke="transparent";
-				stroke-width="3";
+
+
+			svg g:hover .yelabel {
+				display: block;
 				fill:rgb(239,207,28);
 			}
-			.pink {
-				stroke=transparent;
-				stroke-width=3;
-				fill:rgb(255,90,180);
+
+			svg g:hover .purple{
+				fill:white;
+				
+			}
+			svg g:hover .yellow {
+				fill:white;
 			}
 
-			.purp-highlight {
-				fill:#ec008c;
-				opacity: 1;
+			svg g:hover .pink {
+				fill:white;
 			}
+		
+
+
+			
+
+			.purple {
+				stroke: rgb(140,50,255);
+				stroke-width:0.3;
+				fill:rgb(140,50,255);
+				transition: 0.3s;
+				-webkit-transition:0.3s ;
+				-moz-transition:0.3s;
+				
+				
+
+				
+			}
+			.yellow{
+				stroke: rgb(239,207,28);
+				stroke-width:0.3;
+				fill:rgb(239,207,28);
+				transition: 0.3s;
+				-webkit-transition:0.3s ;
+				-moz-transition:0.3s;
+				
+				                    
+			}
+			.pink {
+				stroke: rgb(255,90,180);
+				stroke-width:0.3;
+				fill:rgb(255,90,180);
+				transition: 0.3s;
+				-webkit-transition:0.3s ;
+				-moz-transition:0.3s;
+			}
+
+			
 			.purplabel{
 				font-size: 3px;
 				text-anchor: middle;
@@ -91,9 +126,9 @@
 	  	</g>
 
 	  	<g>
-	  		<circle id="circ2" class="purple" cx="22" cy="20" r="13"/>
+	  		<circle id="circ2" class="purple" cx="22" cy="20" r="13" onclick="works()"/>
 	  		
-	  		<text class="purplabel" x="22" y="20">Upload Image</text>
+	  		<text class="purplabel" x="22" y="20" >Upload Image</text>
 	  	</g>
 
 	  	<g>

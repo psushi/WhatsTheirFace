@@ -1,0 +1,3 @@
+function works() {
+    alert("works!");
+}
