@@ -9,154 +9,152 @@
 	<script src="scripts/main.js" defer></script>
 </head>
 
-<body style="border: 10px solid black;">
-		<!-- The core Firebase JS SDK is always required and must be listed first -->
-	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-
-	<!-- TODO: Add SDKs for Firebase products that you want to use
-	     https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+<body style="border: 5px solid white;">
+	
 	
 
 	
 
 	<h1 style="text-align:left;margin:30px;padding-top: 60px"> WhatsTheirFace</h1>
-
-	<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
-		<style>
-			
-			svg g:hover .purplabel 
-			{
-				display: block;
-				fill: rgb(140,50,255);
-			}
-			svg g:hover .pinklabel {
-				display: block;
-				fill: rgb(255,90,180);
-			}
-
-
-			svg g:hover .yelabel {
-				display: block;
-				fill:rgb(239,207,28);
-			}
-
-			svg g:hover .purple{
-				fill:white;
+	
+	<div class="blobs">
+		<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+			<style>
 				
-			}
-			svg g:hover .yellow {
-				fill:white;
-			}
+				svg g:hover .purplabel 
+				{
+					display: block;
+					fill: rgb(140,50,255);
+					cursor: pointer;
+				}
+				svg g:hover .pinklabel {
+					display: block;
+					fill: rgb(255,90,180);
+					cursor: pointer;
+				}
 
-			svg g:hover .pink {
-				fill:white;
-			}
-		
 
+				svg g:hover .yelabel {
+					display: block;
+					fill:rgb(239,207,28);
+					cursor: pointer;
+				}
 
-			
-
-			.purple {
-				stroke: rgb(140,50,255);
-				stroke-width:0.3;
-				fill:rgb(140,50,255);
-				transition: 0.3s;
-				-webkit-transition:0.3s ;
-				-moz-transition:0.3s;
 				
+
+				svg g:hover .purple, svg g:hover .pink, svg g:hover .yellow{
+					fill:white;
+					cursor: pointer;
+					
+				}
 				
 
 				
-			}
-			.yellow{
-				stroke: rgb(239,207,28);
-				stroke-width:0.3;
-				fill:rgb(239,207,28);
-				transition: 0.3s;
-				-webkit-transition:0.3s ;
-				-moz-transition:0.3s;
+
+				.purple {
+					stroke: rgb(140,50,255);
+					stroke-width:0.3;
+					fill:rgb(140,50,255);
+					transition: 0.3s;
+					-webkit-transition:0.3s ;
+					-moz-transition:0.3s;
+					
+					
+
+					
+				}
+				.yellow{
+					stroke: rgb(239,207,28);
+					stroke-width:0.3;
+					fill:rgb(239,207,28);
+					transition: 0.3s;
+					-webkit-transition:0.3s ;
+					-moz-transition:0.3s;
+					
+										
+				}
+				.pink {
+					stroke: rgb(255,90,180);
+					stroke-width:0.3;
+					fill:rgb(255,90,180);
+					transition: 0.3s;
+					-webkit-transition:0.3s ;
+					-moz-transition:0.3s;
+				}
+
 				
-				                    
-			}
-			.pink {
-				stroke: rgb(255,90,180);
-				stroke-width:0.3;
-				fill:rgb(255,90,180);
-				transition: 0.3s;
-				-webkit-transition:0.3s ;
-				-moz-transition:0.3s;
-			}
+				.purplabel{
+					font-size: 3px;
+					text-anchor: middle;
+					fill:rgb(140,50,255);
+					dominant-baseline: middle;
+					display:none;
+					transition: 0.3s;
+					-webkit-transition:0.3s ;
+					-moz-transition:0.3s;
+				}
 
+				.yelabel {
+					font-size: 3px;
+					text-anchor: middle;
+					fill: white;
+					dominant-baseline: middle;
+					display: none;
+				}
+
+				.pinklabel {
+					font-size: 3px;
+					text-anchor: middle;
+					fill: white;
+					dominant-baseline: middle;
+					display: none;
+				}
+			</style>
+			<g>
+				
+				<circle id="circ3" class="pink" cx="51" cy="20"r="13" />
+				
+				
+				<text class="pinklabel" x="51" y="20">Verify</text>
+				<text class="purplabel" x="22" y="20">Upload Image</text>
+			</g>
+
+			<g>
+				<circle id="circ2" class="purple" cx="22" cy="20" r="13" onclick="location.href='upload.html';"/>
+				
+				<text class="purplabel" x="22" y="20" onclick="location.href='upload.html';" >Upload Image</text>
+			</g>
+
+			<g>
+				
+				<circle id="circ1" class="yellow" cx="80" cy="20" r="13"/>
+				<text class="yelabel" x="80" y="20"> Database</text>
+			</g>
 			
-			.purplabel{
-				font-size: 3px;
-				text-anchor: middle;
-				fill:rgb(140,50,255);
-				dominant-baseline: middle;
-				display:none;
-				transition: 0.3s;
-				-webkit-transition:0.3s ;
-				-moz-transition:0.3s;
+
+			<script>
+			var purplcirc = document.getElementsByClassName("purple");
+			var yellowcirc = document.getElementsByClassName("yellow");
+			var pinkcirc = document.getElementsByClassName("pink");
+
+			/*yellowcirc[0].addEventListener('mouseover',purpEffect);
+			yellowcirc[0].addEventListener('mouseout',purpNoEffect);*/
+
+			function purpEffect(){
+
+				this.classList.add("purp-highlight");
 			}
 
-			.yelabel {
-				font-size: 3px;
-				text-anchor: middle;
-				fill: white;
-				dominant-baseline: middle;
-				display: none;
+			function purpNoEffect(){
+				this.classList.remove("purp-highlight");
 			}
 
-			.pinklabel {
-				font-size: 3px;
-				text-anchor: middle;
-				fill: white;
-				dominant-baseline: middle;
-				display: none;
-			}
-		</style>
-		<g>
-			
-			<circle id="circ3" class="pink" cx="51" cy="20"r="13" />
-			
-	  		
-	  		<text class="pinklabel" x="51" y="20">Verify</text>
-	  		<text class="purplabel" x="22" y="20">Upload Image</text>
-	  	</g>
+			</script>
+		</svg>
+	</div>
 
-	  	<g>
-	  		<circle id="circ2" class="purple" cx="22" cy="20" r="13" onclick="works()"/>
-	  		
-	  		<text class="purplabel" x="22" y="20" >Upload Image</text>
-	  	</g>
 
-	  	<g>
-	  		
-	  		<circle id="circ1" class="yellow" cx="80" cy="20" r="13"/>
-	  		<text class="yelabel" x="80" y="20"> Database</text>
-		</g>
-		  
 
-		<script>
-		var purplcirc = document.getElementsByClassName("purple");
-		var yellowcirc = document.getElementsByClassName("yellow");
-		var pinkcirc = document.getElementsByClassName("pink");
-
-		/*yellowcirc[0].addEventListener('mouseover',purpEffect);
-		yellowcirc[0].addEventListener('mouseout',purpNoEffect);*/
-
-		function purpEffect(){
-
-			this.classList.add("purp-highlight");
-		}
-
-		function purpNoEffect(){
-			this.classList.remove("purp-highlight");
-		}
-
-		</script>
-	</svg>
 
 	<button><a href="loginpage.html">Login page</a></button>
 
