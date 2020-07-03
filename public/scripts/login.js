@@ -12,8 +12,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           if(email_verified!=false){
 
             document.getElementById("verification").style.display = "none";
-            window.location.href="index.html";
-            
+            window.location.href = "index.html"
           }
       }
 

@@ -6,7 +6,6 @@
 	<title style ="text-align-last: left;"> WhatsTheirFace</title>
 	<link rel="shortcut icon" href="icons/favicon-16x16.png" sizes="16x16" type="image/png">
 	<link rel="shortcut icon" href="icons/favicon-32x32.png" sizes="32x32" type="image/png">
-	<link rel="import" href="loginpage.html">
 	<script src="scripts/main.js" defer></script>
 </head>
 
@@ -14,9 +13,11 @@
 	
 	
 
+	<div class="user-info">
+		<p id="userlogin" style="color: rgb(109, 108, 108);;">sushi@hey.com <button id="logout_button" onclick="logoff()">Logout</button></p>
+		
+	</div>
 	
-	<p id="userlogin" style="text-align:right;color: rgb(109, 108, 108);">sushi@hey.com</p>
-
 	<h1 style="text-align:left;margin:30px;margin-left:60px;"> WhatsTheirFace</h1>
 	
 	<div class="blobs">
@@ -166,6 +167,10 @@
 	<!-- TODO: Add SDKs for Firebase products that you want to use
 		https://firebase.google.com/docs/web/setup#available-libraries -->
 	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-functions.js"></script>
 
 	<script>
 	// Your web app's Firebase configuration

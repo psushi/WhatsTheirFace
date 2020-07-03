@@ -2,6 +2,11 @@ function works() {
     alert("works!");
 }
 
+function logoff() {
+   firebase.auth().signOut();
+    window.location.href  = "loginpage.html";
+}
+
 
 
 
