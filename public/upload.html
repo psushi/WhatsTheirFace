@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <link href ="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="styling/upload.css">
-    <title style ="text-align-last: left;"> WhatsTheirFace</title>
-	<link rel="shortcut icon" href="icons/favicon-16x16.png" sizes="16x16" type="image/png">
-	<link rel="shortcut icon" href="icons/favicon-32x32.png" sizes="32x32" type="image/png">
-	<script src="scripts/upload.js" defer></script>
-</html>
+    <head>
+        <link href ="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link rel="stylesheet" href="styling/upload.css">
+        <title style ="text-align-last: left;"> WhatsTheirFace</title>
+        <link rel="shortcut icon" href="icons/favicon-16x16.png" sizes="16x16" type="image/png">
+        <link rel="shortcut icon" href="icons/favicon-32x32.png" sizes="32x32" type="image/png">
+        <script src="scripts/upload.js" defer></script>
+    </head>
+
 <body>
-    <h1>Upload here</h1>
+
+    <h1 style="padding:20px;margin: 20px;margin-top:40px;text-align: center;">Upload Image to Database</h1>
+
+    <div class="upload-blob">
+        <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 23">
+
+            <circle id="upload_circle" cx="50%" cy="12px" r="10"/>
+        </svg>
+    </div>
+
+    <div class="upload-image">
+        <form enctype="multipart/form-data">
+            <label>
+                <strong>Select Image:</strong> 
+            </label>
+            <input id="select_image" type="file" id="image" accept="image/*"><br><br>
+            <button id="upload_button" type="button" onclick="upload()"> Upload</button>
+        </form>
+    </div>
+    
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-functions.js"></script>
+
+
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBTaqQ-aTQQm-mT5U7gdvnldImVLHQ4agg",
+        authDomain: "whatstheirface-f19b7.firebaseapp.com",
+        databaseURL: "https://whatstheirface-f19b7.firebaseio.com",
+        projectId: "whatstheirface-f19b7",
+        storageBucket: "whatstheirface-f19b7.appspot.com",
+        messagingSenderId: "371386438968",
+        appId: "1:371386438968:web:9fe73b273276e8c9fcddcd",
+        measurementId: "G-D6QTKSBVV9"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
 </body>
