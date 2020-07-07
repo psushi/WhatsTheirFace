@@ -54,7 +54,7 @@ function gotopage() {
 
 
   if(email_verified!=false){
-    window.location.href="index.html";
+    window.location.href="main.html";
   }
   else {
     alert("Please verify your email address!");

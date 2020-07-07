@@ -11,7 +11,7 @@ function logoff() {
 //Handle Account Status
 firebase.auth().onAuthStateChanged(user => {
     if(!user) {
-        window.location.href="loginpage.html";
+        window.location.href="index.html";
     }
 
     else {
