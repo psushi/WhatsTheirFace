@@ -12,7 +12,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           if(email_verified!=false){
 
             document.getElementById("verification").style.display = "none";
-            window.location.href = "index.html"
+           
           }
       }
 
@@ -34,19 +34,31 @@ function login_alert() {
 
     var userEmail = document.getElementById("email_field").value;
     var userPassword = document.getElementById("password_field").value;
+
+
+    //-----------------------------------------------------------------------------------
     
     firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
-        window.alert("Error:" + errorMessage)
+        window.alert("Error:" + errorMessage);
       });
 }
 
-function logout() {
-    firebase.auth().signOut();
-    
+function gotopage() {
+  var user = firebase.auth().currentUser;
+  var email = user.email;
+  var email_verified = user.emailVerified;
+
+
+  if(email_verified!=false){
+    window.location.href="index.html";
+  }
+  else {
+    alert("Please verify your email address!");
+  }
 }
 
 
