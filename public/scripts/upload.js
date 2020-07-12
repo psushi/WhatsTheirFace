@@ -11,11 +11,15 @@ function upload() {
     uploadTask.on('state_changed',function(snapshot){
         //observe state change events such as progress, pause , resume
         //get task progress by including the number of bytes uploaded
-
+        
         var progress=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
         console.log("upload is" + progress + " done.");
-       
+        
         progressBar.setAttribute("value",Math.round(progress));
+        if(progress==="100"){
+            progressBar.style.display="none";
+            document.getElementById("uploadDone").style.display = "inline-block";
+        }
 
 
     },function (error) {
