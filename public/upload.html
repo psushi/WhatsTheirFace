@@ -11,9 +11,9 @@
 
 <body>
 
-    <h1 style="padding:20px;margin: 20px;margin-top:40px;text-align: center;">Upload Image to Database</h1>
+    <h1 style="padding:20px;margin: 20px;margin-top:40px;text-align: center;">Upload Image to Database</h1><br>
 
-    <div class="upload-blob">
+    <!--<div class="upload-blob">
         <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 23">
 
             <circle id="upload_circle" cx="50%" cy="12px" r="10"/>
@@ -28,7 +28,24 @@
             <input id="select_image" type="file" id="image" accept="image/*"><br><br>
             <button id="upload_button" type="button" onclick="upload()"> Upload</button>
         </form>
+    </div> -->
+
+
+
+
+    <div class="image-preview" id ="imagePreview">
+        <img src="" alt="Image Preview" class="image-preview__image">
+        <span class="image-preview__default-text"> Image Preview</span>
     </div>
+    <br>
+
+    <div class="upload-image">
+        <input class="inpFile" type="file" name="inpFile" id="inpFile" style="margin-left: 30px;">
+        <button id="upload_button" type="button" onclick="upload()"> Upload</button>
+
+    </div>
+   
+
     
 
 
