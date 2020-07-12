@@ -1,15 +1,23 @@
 function upload() {
-    var image = document.getElementById("image").files[0];
+    document.getElementById("progressBar").style.display="inline-block";
+    var image = document.getElementById("inpFile").files[0];
 
     var imagename=image.name;
     var storageRef= firebase.storage().ref('images/'+imagename);
+    var progressBar = document.getElementById("progressBar");
 
     var uploadTask = storageRef.put(image);
+    
     uploadTask.on('state_changed',function(snapshot){
         //observe state change events such as progress, pause , resume
         //get task progress by including the number of bytes uploaded
+
         var progress=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
         console.log("upload is" + progress + " done.");
+       
+        progressBar.setAttribute("value",Math.round(progress));
+
+
     },function (error) {
         console.log(error.message);
     }, function () {
@@ -32,6 +40,8 @@ function upload() {
     const previewDefaultTex = previewContainer.querySelector(".image-preview__default-text");
 
     inpFile.addEventListener("change" , function() {
+        
+        document.getElementById("progressBar").setAttribute("value","0")
         const file = this.files[0];
         if(file) {
             const reader = new FileReader();

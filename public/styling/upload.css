@@ -88,10 +88,15 @@ button, input {
     
 }
 
-.inpFile { 
+#progressBar {
+    width: 200px;
+    display: none;
     
-    text-align: center;
+}
 
+.progressContainer {
+    text-align: center;
+    
 }
 
 
