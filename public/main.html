@@ -42,6 +42,17 @@
 					fill:rgb(239,207,28);
 					cursor: pointer;
 				}
+				svg g:hover .purp-desc 
+				{
+					display: block;
+					fill: rgb(140,50,255);
+					cursor: pointer;
+				}
+				svg g:hover .pink-desc {
+					display: block;
+					fill: rgb(255,90,180);
+					cursor: pointer;
+				}
 
 				
 
@@ -112,47 +123,64 @@
 					dominant-baseline: middle;
 					display: none;
 				}
+
+				.purp-desc {
+					font-size: 1px;
+					font-weight: 500;
+					text-anchor: middle;
+					fill:rgb(140,50,255);
+					dominant-baseline: middle;
+					display:none;
+					transition: 0.3s;
+					-webkit-transition:0.3s ;
+					-moz-transition:0.3s;
+
+				}
+
+
+				.pink-desc {
+					font-size: 1px;
+					font-weight: 500;
+					text-anchor: middle;
+					fill: white;
+					dominant-baseline: middle;
+					display: none;
+				}
+				.yellow-desc {
+					font-size: 1px;
+					font-weight: 500;
+					text-anchor: middle;
+					fill: white;
+					dominant-baseline: middle;
+					display: none;
+				}
+
+
 			</style>
 			<g>
 				
 				<circle id="circ3" class="pink" cx="51" cy="20"r="13" />
+				<text class="pinklabel" x="51" y="18">Verify</text>
+				<text class="pink-desc" x="51" y="23">Upload image and verify identity</text>
 				
-				
-				<text class="pinklabel" x="51" y="20">Verify</text>
-				<text class="purplabel" x="22" y="20">Upload Image</text>
 			</g>
 
 			<g>
 				<circle id="circ2" class="purple" cx="22" cy="20" r="13" onclick="location.href='upload.html';"/>
 				
-				<text class="purplabel" x="22" y="20" onclick="location.href='upload.html';" >Upload Image</text>
+				<text class="purplabel" x="22" y="18" onclick="location.href='upload.html';" >Upload Image</text>
+				<text class="purp-desc" x="22" y="23" onclick="location.href='upload.html';"> Add an entry to your database</text>
 			</g>
 
 			<g>
 				
 				<circle id="circ1" class="yellow" cx="80" cy="20" r="13" onclick="yoo()"/>
 				<text class="yelabel" x="80" y="20"> Database</text>
+				
 			</g>
 			
 
-			<script>
-			var purplcirc = document.getElementsByClassName("purple");
-			var yellowcirc = document.getElementsByClassName("yellow");
-			var pinkcirc = document.getElementsByClassName("pink");
-
-			/*yellowcirc[0].addEventListener('mouseover',purpEffect);
-			yellowcirc[0].addEventListener('mouseout',purpNoEffect);*/
-
-			function purpEffect(){
-
-				this.classList.add("purp-highlight");
-			}
-
-			function purpNoEffect(){
-				this.classList.remove("purp-highlight");
-			}
-
-			</script>
+			
 		</svg>
 	</div>
 
