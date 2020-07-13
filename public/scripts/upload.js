@@ -1,6 +1,9 @@
 function upload() {
    
     var image = document.getElementById("inpFile").files[0];
+    var uploadPrompt = document.getElementById("uploadDone");
+    var uploadImage= document.getElementById("uploadImage")
+
     if(image){
         console.log("got here")
         document.getElementById("progressBar").style.display="inline-block";
@@ -8,6 +11,7 @@ function upload() {
         var imagename=image.name;
         var storageRef= firebase.storage().ref('images/'+imagename);
         var progressBar = document.getElementById("progressBar");
+        var userInfo = document.getElementById("userInfo");
 
         var uploadTask = storageRef.put(image);
         
@@ -22,8 +26,14 @@ function upload() {
             if(progress===100){
                 console.log("inside")
                 progressBar.style.display="none";
-                document.getElementById("uploadDone").innerHTML ="Upload Finished!";
-                document.getElementById("uploadDone").style.display = "block";
+                uploadPrompt.innerHTML ="Upload Finished!";
+                uploadPrompt.style.display = "block";
+                setTimeout(function (){
+                    uploadImage.style.display="none";
+                    userInfo.style.display="block";
+                    uploadPrompt.style.display = "none";
+                    document.getElementById("heading").innerHTML= "Add Information related to Image ";
+                },1000)
                 
             }
 

@@ -37,9 +37,9 @@ button, input {
 } 
 
 .upload-image button:hover {
-    background: rgb(255,90,180);
-    color: #fff;
-    border: 1px solid rgb(255,90,180);
+    background: white;
+    color: rgb(140,50,255);
+   
 
 }
 
@@ -107,5 +107,51 @@ button, input {
     color:rgb(255,90,180);
     font-weight: bold;
 }
+
+#userInfo {
+    text-align: center;
+    width:100%;
+    display:none;
+   
+
+    
+}
+
+.user-info input {
+    width:20%;
+    padding:5px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(255,90,180);
+    border-radius: 5px;
+
+}
+
+.user-info span  {
+    background-color:rgb(255,90,180);
+    border-radius: 5px;
+    padding: 10px;
+    color:white;
+}
+
+.user-info button {
+    background-color:rgb(255,90,180);
+    border-radius: 5px;
+    padding: 10px;
+    color:white;
+    border: 1px solid rgb(255,90,180);
+    margin-top: 10px;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+
+}
+
+.user-info button:hover {
+    background-color: white;
+    color:rgb(255,90,180);
+}
+
+
+
 
 
