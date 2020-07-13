@@ -3,6 +3,7 @@ body {
     font-size: 22px;
     margin: 0px;
     padding:0px;
+    
 }
 
 
@@ -10,7 +11,7 @@ body {
     font-family: "Raleway";
     font-size: 22px;
     margin: 0px auto;
-    padding:100px;
+    padding:50px;
     text-align: center;
 }
 
@@ -69,11 +70,11 @@ button, input {
     margin: 20px;
     width: 350px; 
     min-height: 350px;
-    border:5px solid rgb(140,50,255);
+    border:8px solid rgb(140,50,255);
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
-
+    background-color: white;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -97,6 +98,13 @@ button, input {
 .progressContainer {
     text-align: center;
     
+}
+
+#uploadDone {
+    text-align: center;
+    display:none;
+    color: #8dd302;
+    font-weight: bold;
 }
 
 
