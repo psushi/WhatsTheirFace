@@ -24,6 +24,7 @@ function upload() {
                 progressBar.style.display="none";
                 document.getElementById("uploadDone").innerHTML ="Upload Finished!";
                 document.getElementById("uploadDone").style.display = "block";
+                
             }
 
 
