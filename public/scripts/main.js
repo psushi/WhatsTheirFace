@@ -1,3 +1,5 @@
+
+
 function works() {
     alert("works!");
 }
@@ -22,6 +24,18 @@ firebase.auth().onAuthStateChanged(user => {
     }
   });
 
+function testit(){
+
+    const Url = 'https://us-central1-first-cloud-function-282616.cloudfunctions.net/hello_get?name=Sushi&number=3'
+    const testUrl = 'https://jsonplaceholder.typicode.com/posts';
+    axios.get(Url)
+    .then(data=>console.log(data.data))
+    .catch(err=>console.log(err))
+
+
+
+
+}
 
 
 
