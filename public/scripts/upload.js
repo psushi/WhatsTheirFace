@@ -1,3 +1,15 @@
+firebase.auth().onAuthStateChanged(user => {
+    if(user) {
+        console.log("user signed-in");
+    }
+
+    else {
+        window.alert("no users wtf");
+        
+    }
+  });
+
+
 function upload() {
    
     var image = document.getElementById("inpFile").files[0];
@@ -96,9 +108,39 @@ inpFile.addEventListener("change" , function() {
 
 function submitInfo() {
 
-    var firebaseRef = firebase.database().ref(); 
-    firebaseRef.child("Text").set("value");
+    var name = document.getElementById("userName").value;
+    var relation = document.getElementById("userRelation").value;
+    var database = firebase.database(); 
+    userData = database.ref().child("users");
+    var user = firebase.auth().currentUser;
+    var userEmail = user.email;
+    var userID = user.uid;
+    
+    console.log("works");
+    console.log(user);
+
+
+
+    if(name)
+    {
+        console.log("got in");
+        console.log(typeof(userEmail));
+        userData.child(userID).push({
+            Name: name,
+            relationship: relation
+        });
+    }
+
+
+    setTimeout( function () {
+        document.getElementById("submitInfo").style.display = "none";
+        document.getElementById("afterSubmit").style.display="block";
+        },1000)
+
 }
+
+    
+
 
 
 
