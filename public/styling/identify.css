@@ -23,11 +23,11 @@ button, input {
 
 
 .upload-image button {
-    background:  rgb(140,50,255);
+    background:  rgb(255,90,180);
     color:#fff;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid  rgb(140,50,255);
+    border: 1px solid rgb(255,90,180);
     border-radius: 5px;
     transition: 0.3s; 
     -webkit-transition:0.3s;
@@ -38,17 +38,17 @@ button, input {
 
 .upload-image button:hover {
     background: white;
-    color: rgb(140,50,255);
+    color: rgb(255,90,180);
    
 
 }
 
 .upload-image  input{
-    background: rgb(140,50,255);
+    background: rgb(255,90,180);
     color:#fff;
     padding: 10px;
     margin-bottom: 10px;
-    border:  rgb(140,50,255);
+    border:  rgb(255,90,180);
     border-radius: 5px;
     transition: 0.3s; 
     -webkit-transition:0.3s;
@@ -71,7 +71,7 @@ button, input {
     margin: 20px;
     width: 400px; 
     height: 400px;
-    border:8px solid rgb(140,50,255);
+    border:8px solid rgb(255,90,180);
     border-radius: 50%;
     overflow: hidden;
     margin-left: auto;
@@ -125,24 +125,24 @@ button, input {
     width:20%;
     padding:5px;
     margin-bottom: 10px;
-    border: 1px solid rgb(140,50,255);
+    border: 1px solid rgb(255,90,180);
     border-radius: 5px;
 
 }
 
 .user-info span  {
-    background-color:rgb(140,50,255);
+    background-color:rgb(255,90,180);
     border-radius: 5px;
     padding: 10px;
     color:white;
 }
 
 .user-info button {
-    background-color:rgb(140,50,255);
+    background-color:rgb(255,90,180);
     border-radius: 5px;
     padding: 10px;
     color:white;
-    border: 1px solid rgb(140,50,255);
+    border: 1px solid rgb(255,90,180);
     margin-top: 10px;
     -moz-transition: 0.3s;
     -webkit-transition: 0.3s;
