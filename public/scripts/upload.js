@@ -19,9 +19,11 @@ function upload() {
     if(image){
         console.log("got here")
         document.getElementById("progressBar").style.display="inline-block";
-        
+        var user = firebase.auth().currentUser;
+        var userId = user.uid;
+    
         var imagename=image.name;
-        var storageRef= firebase.storage().ref('images/'+imagename);
+        var storageRef= firebase.storage().ref('images/'+userId+"/"+imagename);
         var progressBar = document.getElementById("progressBar");
         var userInfo = document.getElementById("userInfo");
 
