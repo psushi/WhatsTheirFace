@@ -26,11 +26,20 @@ firebase.auth().onAuthStateChanged(user => {
 
 function testit(){
 
-    const Url = 'https://us-central1-first-cloud-function-282616.cloudfunctions.net/hello_get?name=Sushi&number=3'
-    const testUrl = 'https://jsonplaceholder.typicode.com/posts';
-    axios.get(Url)
-    .then(data=>console.log(data.data))
-    .catch(err=>console.log(err))
+    var xhr = new XMLHttpRequest();
+    var url = "https://us-central1-first-cloud-function-282616.cloudfunctions.net/hello_get";
+    xhr.open("POST",url,true);
+    xhr.setRequestHeader("Content-Type","application/json");
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState===4 & xhr.status===200){
+            var json=JSON.parse(xhr.responseText);
+            console.log(json.email+ ", "+json.password);
+        }
+    };
+
+    var data = JSON.stringify({"email":"hey@mail","password":"1010101"});
+    xhr.send(data);
+
 
 
 
