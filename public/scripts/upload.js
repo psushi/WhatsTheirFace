@@ -4,7 +4,7 @@ firebase.auth().onAuthStateChanged(user => {
     }
 
     else {
-        window.alert("no users wtf");
+        window.alert("no users wth");
         
     }
   });
