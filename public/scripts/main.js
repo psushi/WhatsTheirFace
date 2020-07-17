@@ -30,7 +30,7 @@ function testit(){
     var url = "https://us-central1-first-cloud-function-282616.cloudfunctions.net/face_embedding";
     xhr.open("POST",url,true);
     xhr.setRequestHeader("Content-Type","application/json");
-    xhr.onreadystatechange = function() {https://us-central1-first-cloud-function-282616.cloudfunctions.net/hello_get
+    xhr.onreadystatechange = function() {
         if(xhr.readyState===4 & xhr.status===200){
             console.log(xhr.responseText)
             //var json=JSON.parse(xhr.responseText);

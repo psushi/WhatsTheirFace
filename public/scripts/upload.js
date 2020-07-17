@@ -1,3 +1,6 @@
+var singleGlobalVar ={};
+
+
 firebase.auth().onAuthStateChanged(user => {
     if(user) {
         console.log("user signed-in");
@@ -59,6 +62,37 @@ function upload() {
             uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL){
                 //uploaded image url 
                 console.log(downloadURL);
+                singleGlobalVar.downloadURL = downloadURL;
+                
+                //calling cloud function and saving it in singleGlobalVar--------------------------------
+                
+                var xhr = new XMLHttpRequest();
+                var url = "https://us-central1-first-cloud-function-282616.cloudfunctions.net/face_embedding";
+                xhr.open("POST",url,true);
+                xhr.setRequestHeader("Content-Type","application/json");
+                xhr.onreadystatechange = function() {
+                    if(xhr.readyState===4 & xhr.status===200){
+                        console.log(xhr.responseText)
+                       // singleGlobalVar.embedding = xhr.responseText;
+                        //var json=JSON.parse(xhr.responseText);
+                        //console.log(json.email+ ", "+json.password);
+                    }
+                };
+
+                var data = JSON.stringify({"downloadURL":singleGlobalVar.downloadURL});
+                xhr.send(data);
+
+
+
+
+
+
+
+
+
+
+
+            
             })
 
         }
