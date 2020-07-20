@@ -56,7 +56,7 @@ def face_embedding(request):
 
 
 
-        response = flask.jsonify("download url : " + str(downloadURL) + "embedding : " + str(embedding) + "probability: " + str(prob))
+        response = flask.jsonify("embedding : " + str(embedding) + "probability: " + str(prob))
         response.headers.set('Access-Control-Allow-Origin', '*')
         response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
         return response

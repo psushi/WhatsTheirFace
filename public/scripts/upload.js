@@ -46,11 +46,9 @@ function upload() {
                 uploadPrompt.innerHTML ="Upload Finished!";
                 uploadPrompt.style.display = "block";
                 setTimeout(function (){
-                    uploadImage.style.display="none";
-                    userInfo.style.display="block";
-                    uploadPrompt.style.display = "none";
-                    document.getElementById("heading").innerHTML= "Add Information related to Image ";
-                },1000)
+                    uploadPrompt.innerHTML="Generating embedding..."
+                },500)
+                
                 
             }
 
@@ -71,11 +69,21 @@ function upload() {
                 xhr.open("POST",url,true);
                 xhr.setRequestHeader("Content-Type","application/json");
                 xhr.onreadystatechange = function() {
-                    if(xhr.readyState===4 & xhr.status===200){
-                        console.log(xhr.responseText)
-                       // singleGlobalVar.embedding = xhr.responseText;
-                        //var json=JSON.parse(xhr.responseText);
-                        //console.log(json.email+ ", "+json.password);
+                    if(this.readyState===4 & this.status===200){
+                        //var respond = JSON.parse(this.responseText);
+                        console.log(this.responseText);
+                        console.log(typeof(this.responseText));
+                        
+                        setTimeout(function (){
+                            uploadImage.style.display="none";
+                            userInfo.style.display="block";
+                            uploadPrompt.style.display = "none";
+                            document.getElementById("heading").innerHTML= "Add Information related to Image ";
+                        },1000);
+                        //singleGlobalVar.embedding = JSON.parse(xhr.responseText).embedding;
+                        //alert(singleGlobalVar.embedding[0]);
+
+                        
                     }
                 };
 
