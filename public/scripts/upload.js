@@ -174,9 +174,11 @@ function submitInfo() {
         console.log("got in");
         console.log(typeof(userEmail));
         userData.child(userID).push({
-            Name: name,
+            name: name,
             relationship: relation,
-            embedding:singleGlobalVar.embedding
+            embedding:singleGlobalVar.embedding,
+            downloadURL:singleGlobalVar.downloadURL
+
         });
     }
 
