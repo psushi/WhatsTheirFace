@@ -136,6 +136,42 @@ function submitInfo() {
 
 }
 
+
+
+function getData(){
+    var user = firebase.auth().currentUser;
+    var database = firebase.database();
+    var userRef = database.ref('users/'+user.uid);
+    var userKeys = [];
+    var userEmbeddings=[];
+
+
+    userRef.on('value',function(data) {
+        var info = data.val();
+        var keys = Object.keys(info);
+        
+        for(var i=0;i<keys.length;i++){
+            var k = keys[i];
+            userKeys.push(info[k].Name); 
+            userEmbeddings.push(info[k].embedding);
+            
+            
+
+        }
+        console.log(userEmbeddings);
+
+
+
+        
+        
+
+    });
+
+   
+
+
+}
+
     
 
 
