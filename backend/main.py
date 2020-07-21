@@ -61,3 +61,6 @@ def face_embedding(request):
         response.headers.set('Access-Control-Allow-Origin', '*')
         response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
         return response
+
+def yoo():
+    return "cool"

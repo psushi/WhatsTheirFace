@@ -69,10 +69,14 @@ function upload() {
                 xhr.open("POST",url,true);
                 xhr.setRequestHeader("Content-Type","application/json");
                 xhr.onreadystatechange = function() {
-                    if(this.readyState===4 & this.status===200){
+                    if(xhr.readyState===4 & xhr.status===200){
                         //var respond = JSON.parse(this.responseText);
-                        console.log(this.responseText);
-                        console.log(typeof(this.responseText));
+                        var embed = JSON.parse(xhr.responseText);
+                        console.log(embed.embedding);
+            
+            
+                        singleGlobalVar.embedding = embed.embedding;
+                        alert(singleGlobalVar.embedding[0]);
                         
                         setTimeout(function (){
                             uploadImage.style.display="none";
@@ -171,7 +175,8 @@ function submitInfo() {
         console.log(typeof(userEmail));
         userData.child(userID).push({
             Name: name,
-            relationship: relation
+            relationship: relation,
+            embedding:singleGlobalVar.embedding
         });
     }
 
@@ -184,24 +189,7 @@ function submitInfo() {
 }
 
     
-function testing() {
-    var xhr = new XMLHttpRequest();
-    var url = "https://us-central1-first-cloud-function-282616.cloudfunctions.net/face_embedding";
-    xhr.open("POST",url,true);
-    xhr.setRequestHeader("Content-Type","application/json");
-    xhr.onreadystatechange = function() {
-        if(xhr.readyState===4 & xhr.status===200){
-            console.log(xhr.responseText)
-           // singleGlobalVar.embedding = xhr.responseText;
-            //var json=JSON.parse(xhr.responseText);
-            //console.log(json.email+ ", "+json.password);
-        }
-    };
 
-    var data = JSON.stringify({"downloadURL":"https://firebasestorage.googleapis.com/v0/b/whatstheirface-f19b7.appspot.com/o/images%2Fp9B4a4X49HXjhq4mWyjnaJTgRWb2%2FIMG_20180706_214738.jpg?alt=media&token=ebc30160-cecf-4ed7-9fbb-62225aebde5c"});
-    xhr.send(data);
-
-}
 
 
 
