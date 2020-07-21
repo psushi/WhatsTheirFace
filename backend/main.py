@@ -48,7 +48,8 @@ def face_embedding(request):
         aligned_image = aligned_image.unsqueeze(0)
         aligned_image.to(device)
 
-        embedding = str(resnet(aligned_image).detach().cpu())
+        embedding = resnet(aligned_image).detach().cpu()
+        embedding = embedding.squeeze().tolist()
 
 
 
@@ -56,7 +57,7 @@ def face_embedding(request):
 
 
 
-        response = flask.jsonify("download url : " + downloadURL + "embedding : " + embedding + "probability: " + prob)
+        response = flask.jsonify(downloadURL=downloadURL,embedding=embedding, probability=prob.item())
         response.headers.set('Access-Control-Allow-Origin', '*')
         response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
         return response
