@@ -1,3 +1,5 @@
+
+
 var loneGlobalVar = {};
 
 firebase.auth().onAuthStateChanged(user => {
@@ -145,9 +147,9 @@ function getData() {
     var user = firebase.auth().currentUser;
     var database = firebase.database();
     var userRef = database.ref('users/' + user.uid);
-    var userKeys = [];
-    var userEmbeddings = [];
-    var downloadURLs = [];
+    loneGlobalVar.userKeys = [];
+    loneGlobalVar.userEmbeddings = [];
+    loneGlobalVar.downloadURLs = [];
 
     userRef.on('value', function (data) {
         var info = data.val();
@@ -155,69 +157,91 @@ function getData() {
 
         for (var i = 0; i < keys.length; i++) {
             var k = keys[i];
-            userKeys.push(info[k].name);
-            userEmbeddings.push(info[k].embedding);
-            downloadURLs.push(info[k].downloadURL);
+            loneGlobalVar.userKeys.push(info[k].name);
+            loneGlobalVar.userEmbeddings.push(info[k].embedding);
+            loneGlobalVar.downloadURLs.push(info[k].downloadURL);
 
         }
         console.log("got all user details!");
+        setTimeout(get_embed(loneGlobalVar.downloadURL),5000);
 
-
+        
+        
 
     });
 
+    
+    
+
+}
+
+
+
+function get_embed(downloadURL) {
+
     var xhr = new XMLHttpRequest();
     var url = "https://us-central1-first-cloud-function-282616.cloudfunctions.net/face_embedding";
-    xhr.open("POST",url,true);
-    xhr.setRequestHeader("Content-Type","application/json");
-    xhr.onreadystatechange = function() {
-        if(xhr.readyState===4 & xhr.status===200){
-            var reply  = JSON.parse(xhr.responseText);
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 & xhr.status === 200) {
+            var reply = JSON.parse(xhr.responseText);
             loneGlobalVar.new_embed = reply.embedding;
             console.log(loneGlobalVar.new_embed);
-            console.log(userEmbeddings);
-
-        // identify ---------------------------------------------------------------------
-            var xhr = new XMLHttpRequest();
-            var url = "https://us-central1-first-cloud-function-282616.cloudfunctions.net/identify";
-            xhr.open("POST",url,true);
-            xhr.setRequestHeader("Content-Type","application/json");
-            xhr.onreadystatechange = function() {
-                if(xhr.readyState===4 & xhr.status===200){
-                    //var respond = JSON.parse(this.responseText);
-                    var index = JSON.parse(xhr.responseText);
-                    console.log(userKeys[index]);
-
             
+
         }
     };
 
-    var data2 = JSON.stringify({"embeddings":userEmbeddings,"new_embed":loneGlobalVar.new_embed});
-    console.log("the input");
-    console.log(typeof(data2));
-
-            
-        }
-    };
-
-    var data = JSON.stringify({"downloadURL":loneGlobalVar.downloadURL});
+    var data = JSON.stringify({ "downloadURL": downloadURL });
     xhr.send(data);
+    return;
+}
 
 
 
 
-    
-    //xhr.send(data2);
+function identify() {
+
+    var njnew_embed = nj.array(loneGlobalVar.new_embed);
+    var distances = [];
+    var sum = 0;
 
 
+    for (let embeds of loneGlobalVar.userEmbeddings) {
+        embeds = nj.array(embeds);
+        let diff = embeds.subtract(njnew_embed);
+        diff = diff.pow(2);
+        distances.push(Math.sqrt(diff.sum()));
+    }
 
-
-
+    var index = indexOfMin(distances);
+    console.log(loneGlobalVar.userKeys[index]);
 
 
 
 
 }
+
+
+function indexOfMin(arr) {
+    if (arr.length === 0) {
+        return -1;
+    }
+
+    var min = arr[0];
+    var minIndex = 0;
+
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] < min) {
+            minIndex = i;
+            min = arr[i];
+        }
+    }
+
+    return minIndex;
+}
+
 
 
 
