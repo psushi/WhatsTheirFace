@@ -149,7 +149,6 @@ function getData() {
     var userEmbeddings = [];
     var downloadURLs = [];
 
-
     userRef.on('value', function (data) {
         var info = data.val();
         var keys = Object.keys(info);
@@ -173,16 +172,50 @@ function getData() {
     xhr.setRequestHeader("Content-Type","application/json");
     xhr.onreadystatechange = function() {
         if(xhr.readyState===4 & xhr.status===200){
-            //var respond = JSON.parse(this.responseText);
-            var embed = JSON.parse(xhr.responseText);
-            console.log(embed.embedding);
+            var reply  = JSON.parse(xhr.responseText);
+            loneGlobalVar.new_embed = reply.embedding;
+            console.log(loneGlobalVar.new_embed);
+            console.log(userEmbeddings);
+
+        // identify ---------------------------------------------------------------------
+            var xhr = new XMLHttpRequest();
+            var url = "https://us-central1-first-cloud-function-282616.cloudfunctions.net/identify";
+            xhr.open("POST",url,true);
+            xhr.setRequestHeader("Content-Type","application/json");
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState===4 & xhr.status===200){
+                    //var respond = JSON.parse(this.responseText);
+                    var index = JSON.parse(xhr.responseText);
+                    console.log(userKeys[index]);
 
             
         }
     };
 
-    var data = JSON.stringify({"embeddings":embeddings,"new_embed":embed.embedding});
+    var data2 = JSON.stringify({"embeddings":userEmbeddings,"new_embed":loneGlobalVar.new_embed});
+    console.log("the input");
+    console.log(typeof(data2));
+
+            
+        }
+    };
+
+    var data = JSON.stringify({"downloadURL":loneGlobalVar.downloadURL});
     xhr.send(data);
+
+
+
+
+    
+    //xhr.send(data2);
+
+
+
+
+
+
+
+
 
 }
 

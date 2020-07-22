@@ -30,7 +30,9 @@ def identify(request):
 
         dists = [np.linalg.norm(e1-new_embed) for e1 in embeddings]
         index = np.argmin(dists)
-        response = flask.jsonify(index=index)
+        response = flask.jsonify(index=int(index))
+
+    
         response.headers.set('Access-Control-Allow-Origin', '*')
         response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
         return response
