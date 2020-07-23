@@ -72,18 +72,18 @@ function upload() {
                     if(xhr.readyState===4 & xhr.status===200){
                         //var respond = JSON.parse(this.responseText);
                         var embed = JSON.parse(xhr.responseText);
-                        console.log(embed.embedding);
+                       
             
             
                         singleGlobalVar.embedding = embed.embedding;
-                        alert(singleGlobalVar.embedding[0]);
+                        
                         
                         setTimeout(function (){
                             uploadImage.style.display="none";
                             userInfo.style.display="block";
                             uploadPrompt.style.display = "none";
                             document.getElementById("heading").innerHTML= "Add Information related to Image ";
-                        },1000);
+                        },500);
                         //singleGlobalVar.embedding = JSON.parse(xhr.responseText).embedding;
                         //alert(singleGlobalVar.embedding[0]);
 

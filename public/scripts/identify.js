@@ -159,6 +159,7 @@ function getData() {
     loneGlobalVar.userKeys = [];
     loneGlobalVar.userEmbeddings = [];
     loneGlobalVar.downloadURLs = [];
+    loneGlobalVar.info1 = [];
 
     userRef.on('value', function (data) {
         var info = data.val();
@@ -169,6 +170,7 @@ function getData() {
             loneGlobalVar.userKeys.push(info[k].name);
             loneGlobalVar.userEmbeddings.push(info[k].embedding);
             loneGlobalVar.downloadURLs.push(info[k].downloadURL);
+            loneGlobalVar.info1.push(info[k].relationship);
 
         }
         console.log("got all user details!");
@@ -252,6 +254,16 @@ function identify() {
 
     document.getElementById("uploadDone").innerHTML ="Match!";
     document.getElementById("uploadImage").style.display = "none";
+    setTimeout(function(){
+        document.getElementById("uploadDone").style.display="none";
+        document.getElementById("heading").innerHTML="It's "+loneGlobalVar.userKeys[index]+"!";
+        document.getElementById("identityName").innerHTML = loneGlobalVar.userKeys[index];
+        document.getElementById("identityInfo-1").innerHTML= loneGlobalVar.info1[index];
+        document.getElementById("confidence").innerHTML= Math.round(confidence*100)+"%";
+        document.getElementById("finalResult").style.display="block";
+
+
+    },1000)
 
     return;
 
