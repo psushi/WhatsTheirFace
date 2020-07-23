@@ -47,6 +47,15 @@ function upload() {
                 uploadPrompt.innerHTML = "Upload Finished!";
                 uploadPrompt.style.display = "block";
 
+                setTimeout(function(){
+                    uploadPrompt.innerHTML = "Identifying....";
+                    getData();
+                    
+
+
+
+                },1500)
+
 
             }
 
@@ -163,8 +172,9 @@ function getData() {
 
         }
         console.log("got all user details!");
-        setTimeout(get_embed(loneGlobalVar.downloadURL),5000);
 
+        setTimeout(get_embed(loneGlobalVar.downloadURL),5000);
+        return;
         
         
 
@@ -182,12 +192,16 @@ function get_embed(downloadURL) {
     var xhr = new XMLHttpRequest();
     var url = "https://us-central1-first-cloud-function-282616.cloudfunctions.net/face_embedding";
     xhr.open("POST", url, true);
+    
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 & xhr.status === 200) {
             var reply = JSON.parse(xhr.responseText);
             loneGlobalVar.new_embed = reply.embedding;
-            console.log(loneGlobalVar.new_embed);
+            //console.log(loneGlobalVar.new_embed);
+
+            setTimeout(identify(),1000);
+
             
 
         }
@@ -216,7 +230,30 @@ function identify() {
     }
 
     var index = indexOfMin(distances);
-    console.log(loneGlobalVar.userKeys[index]);
+    let njdist = nj.array(distances);
+
+    //sigmoid -> threshold ----------------------------------------------------
+    var confidences = nj.sigmoid(njdist);
+    confidences = confidences.subtract(0.5);
+    var confidence = 1 - confidences.get(index);
+    
+
+
+    // softmax -> threshold -----------------------------------------------------
+
+    /*var confidences =nj.softmax(njdist);
+    var confidence = 1 - confidences.get(index);*/
+
+
+    console.log(loneGlobalVar.userKeys[index]+" confidence:"+confidence);
+
+
+    previewImage.setAttribute('src',loneGlobalVar.downloadURLs[index]);
+
+    document.getElementById("uploadDone").innerHTML ="Match!";
+    document.getElementById("uploadImage").style.display = "none";
+
+    return;
 
 
 
