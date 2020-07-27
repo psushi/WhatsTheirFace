@@ -1,18 +1,13 @@
 import flask
-import requests
-from io import BytesIO
-from PIL import Image
 from facenet_pytorch import MTCNN, InceptionResnetV1
-import torch 
-from torchvision import datasets 
+import torch
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt 
 from imageio import imread
 
 
 def face_embedding(request):
-   
+
     # Set CORS headers for the preflight request
     if request.method == 'OPTIONS':
         # Allows GET requests from any origin with the Content-Type
@@ -26,39 +21,35 @@ def face_embedding(request):
 
         return ('', 204, headers)
 
-    if request.method=="GET":
+    if request.method == "GET":
         return "Hello!"
 
+    if request.method == "POST":
+        try:
+            data = request.get_json()
+            downloadURL = data["downloadURL"]
 
+            image = imread(downloadURL)
 
-    if request.method=="POST":
-        data = request.get_json()
-        downloadURL = data["downloadURL"]
+            device = torch.device(
+                'cuda:0' if torch.cuda.is_available() else 'cpu')
+            mtcnn = MTCNN(
+                image_size=160, margin=0, min_face_size=20, thresholds=[0.6, 0.7, 0.7], factor=0.709, post_process=True, device=device)
+            resnet = InceptionResnetV1(pretrained='vggface2').eval().to(device)
 
-        
-        image = imread(downloadURL)
+            aligned_image, prob = mtcnn(image, return_prob=True)
+            aligned_image = aligned_image.unsqueeze(0)
+            aligned_image.to(device)
 
-        device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-        mtcnn = MTCNN( 
-                    image_size=160,margin=0,min_face_size=20,thresholds=[0.6,0.7,0.7],factor=0.709,post_process=True,device=device)
-        resnet = InceptionResnetV1(pretrained='vggface2').eval().to(device)
+            embedding = resnet(aligned_image).detach().cpu()
+            embedding = embedding.squeeze().tolist()
 
+            del image, aligned_image
 
-        aligned_image, prob = mtcnn(image,return_prob=True)
-        aligned_image = aligned_image.unsqueeze(0)
-        aligned_image.to(device)
+            response = flask.jsonify(embedding=embedding)
+            response.headers.set('Access-Control-Allow-Origin', '*')
+            response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
+            return response
 
-        embedding = resnet(aligned_image).detach().cpu()
-        embedding = embedding.squeeze().tolist()
-
-
-
-
-
-
-
-        response = flask.jsonify(downloadURL=downloadURL,embedding=embedding, probability=prob.item())
-        response.headers.set('Access-Control-Allow-Origin', '*')
-        response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
-        return response
-
+        except:
+            response = flask.jsonify(embedding="nope")
