@@ -197,10 +197,17 @@ function identify() {
 
   // softmax -> threshold -----------------------------------------------------
 
-  /*var confidences =nj.softmax(njdist);
-    var confidence = 1 - confidences.get(index);*/
+  var softmaxes = nj.softmax(njdist);
+  var softmin = 1 - softmaxes.get(index);
 
-  console.log(loneGlobalVar.userKeys[index] + " confidence:" + confidence);
+  var final_confidence = (confidence + softmin) / 2;
+  console.log(
+    loneGlobalVar.userKeys[index] +
+      " confidence:" +
+      confidence +
+      " soft min  :  " +
+      softmin
+  );
 
   previewImage.setAttribute("src", loneGlobalVar.downloadURLs[index]);
 
@@ -215,7 +222,7 @@ function identify() {
     document.getElementById("identityInfo-1").innerHTML =
       loneGlobalVar.info1[index];
     document.getElementById("confidence").innerHTML =
-      Math.round(confidence * 100) + "%";
+      Math.round(final_confidence * 100) + "%";
     document.getElementById("finalResult").style.display = "block";
   }, 1000);
 
