@@ -62,7 +62,7 @@ function upload() {
 
           var xhr = new XMLHttpRequest();
           var url =
-            "https://us-central1-first-cloud-function-282616.cloudfunctions.net/face_embedding";
+            "https://us-central1-whatstheirface-f19b7.cloudfunctions.net/face_embedding";
           xhr.open("POST", url, true);
           xhr.setRequestHeader("Content-Type", "application/json");
           xhr.onreadystatechange = function () {

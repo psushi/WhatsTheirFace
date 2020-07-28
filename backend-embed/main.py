@@ -11,7 +11,7 @@ def face_embedding(request):
         # Allows GET requests from any origin with the Content-Type
         # header and caches preflight response for an 3600s
         headers = {
-            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Origin': 'https://whatstheirface-f19b7.web.app',
             'Access-Control-Allow-Methods': 'GET, POST',
             'Access-Control-Allow-Headers': 'Content-Type',
             'Access-Control-Max-Age': '3600'
@@ -51,3 +51,6 @@ def face_embedding(request):
 
         except:
             response = flask.jsonify(embedding="nope")
+            response.headers.set('Access-Control-Allow-Origin', '*')
+            response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
+            return

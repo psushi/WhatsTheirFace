@@ -152,10 +152,10 @@ function getData() {
   });
 }
 
-function get_embed(downloadURL) {
+function get_embed(imgURL) {
   var xhr = new XMLHttpRequest();
   var url =
-    "https://us-central1-first-cloud-function-282616.cloudfunctions.net/face_embedding";
+    "https://us-central1-whatstheirface-f19b7.cloudfunctions.net/face_embedding";
   xhr.open("POST", url, true);
 
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -169,9 +169,8 @@ function get_embed(downloadURL) {
     }
   };
 
-  var data = JSON.stringify({ downloadURL: downloadURL });
+  var data = JSON.stringify({ downloadURL: imgURL });
   xhr.send(data);
-  return;
 }
 
 function identify() {
