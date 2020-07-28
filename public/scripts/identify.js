@@ -45,6 +45,7 @@ function upload() {
           uploadPrompt.style.display = "block";
 
           setTimeout(function () {
+            document.getElementById("ldsRoller").style.display = "inline-block";
             uploadPrompt.innerHTML = "Identifying....";
             getData();
           }, 1500);
@@ -65,7 +66,7 @@ function upload() {
   } else {
     document.getElementById("uploadDone").innerHTML =
       "Please add an image for upload";
-    document.getElementById("uploadDone").style.display = "block";
+    document.getElementById("uploadDone").style.display = "inline-block";
   }
 }
 
@@ -86,7 +87,6 @@ inpFile.addEventListener("change", function () {
     previewImage.style.display = "block";
 
     reader.addEventListener("load", function () {
-      console.log(this);
       previewImage.setAttribute("src", this.result);
     });
 
@@ -211,6 +211,7 @@ function identify() {
   previewImage.setAttribute("src", loneGlobalVar.downloadURLs[index]);
 
   document.getElementById("uploadDone").innerHTML = "Match!";
+  document.getElementById("ldsRoller").style.display = "none";
   document.getElementById("uploadImage").style.display = "none";
   setTimeout(function () {
     document.getElementById("uploadDone").style.display = "none";
@@ -223,6 +224,7 @@ function identify() {
     document.getElementById("confidence").innerHTML =
       Math.round(final_confidence * 100) + "%";
     document.getElementById("finalResult").style.display = "block";
+    document.getElementById("afterSubmit").style.display = "block";
   }, 1000);
 
   return;

@@ -1,63 +1,94 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href ="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-        <link rel="stylesheet" href="styling/upload.css">
-        <title style ="text-align-last: left;"> WhatsTheirFace</title>
-        <link rel="shortcut icon" href="icons/favicon-16x16.png" sizes="16x16" type="image/png">
-        <link rel="shortcut icon" href="icons/favicon-32x32.png" sizes="32x32" type="image/png">
-        <script src="scripts/upload.js" defer></script>
-    </head>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styling/upload.css" />
+    <title style="text-align-last: left;">WhatsTheirFace</title>
+    <link
+      rel="shortcut icon"
+      href="icons/favicon-16x16.png"
+      sizes="16x16"
+      type="image/png"
+    />
+    <link
+      rel="shortcut icon"
+      href="icons/favicon-32x32.png"
+      sizes="32x32"
+      type="image/png"
+    />
+    <script src="scripts/upload.js" defer></script>
+  </head>
 
-<body>
+  <body>
+    <h1
+      id="heading"
+      style="padding: 20px; margin: 20px; margin-top: 40px; text-align: center;"
+    >
+      Upload Image to Database
+    </h1>
+    <br />
 
-    <h1 id="heading" style="padding:20px;margin: 20px;margin-top:40px;text-align: center;">Upload Image to Database</h1><br>
-
-    
-
-
-
-
-    <div class="image-preview" id ="imagePreview">
-        <img src="" alt="Image Preview" class="image-preview__image">
-        <span class="image-preview__default-text"> Image Preview</span>
+    <div class="image-preview" id="imagePreview">
+      <img src="" alt="Image Preview" class="image-preview__image" />
+      <span class="image-preview__default-text"> Image Preview</span>
     </div>
-    <br>
+    <br />
 
     <div class="progressContainer">
-        <progress id="progressBar" value="0" max="100">0</progress>
+      <progress id="progressBar" value="0" max="100">0</progress>
     </div>
 
     <p id="uploadDone">Upload finished!</p>
 
     <div class="upload-image" id="uploadImage">
-        <input class="inpFile" type="file" name="inpFile" id="inpFile" style="margin-left: 30px;">
-        <button id="upload_button" type="button" onclick="upload()">Upload</button>
+      <input
+        class="inpFile"
+        type="file"
+        name="inpFile"
+        id="inpFile"
+        style="margin-left: 30px;"
+      />
+      <button id="upload_button" type="button" onclick="upload()">
+        Upload
+      </button>
     </div>
 
     <div class="user-info" id="userInfo">
-        <span> Name:</span>
-        <input class="user-name" id="userName" type="text" placeholder="Name">
-        <br>
-        <span> Relationship:</span>
-        <input class="user-relation" id="userRelation" type="text" placeholder="Relationship">
-        <br>
-        <button id="submitInfo" type="button" onclick="submitInfo()">Add Entry</button>
+      <span> Name:</span>
+      <input class="user-name" id="userName" type="text" placeholder="Name" />
+      <br />
+      <span> Relationship:</span>
+      <input
+        class="user-relation"
+        id="userRelation"
+        type="text"
+        placeholder="Relationship"
+      />
+      <br />
+      <button id="submitInfo" type="button" onclick="submitInfo()">
+        Add Entry
+      </button>
     </div>
 
     <div class="after-submit" id="afterSubmit">
-        <button id="uploadMore" type="button" onclick="window.location.href='upload.html'">Upload more images</button>
-        <button id="returnToMain" type="button" onclick="window.location.href='main.html'">Return to Main Page</button>
-        
+      <button
+        id="uploadMore"
+        type="button"
+        onclick="window.location.href='upload.html'"
+      >
+        Upload more images
+      </button>
+      <button
+        id="returnToMain"
+        type="button"
+        onclick="window.location.href='main.html'"
+      >
+        Return to Main Page
+      </button>
     </div>
-
-    
-
-    
-   
-
-    
-
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
@@ -70,11 +101,9 @@
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-functions.js"></script>
 
-
-
     <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
         apiKey: "AIzaSyBTaqQ-aTQQm-mT5U7gdvnldImVLHQ4agg",
         authDomain: "whatstheirface-f19b7.firebaseapp.com",
         databaseURL: "https://whatstheirface-f19b7.firebaseio.com",
@@ -82,10 +111,11 @@
         storageBucket: "whatstheirface-f19b7.appspot.com",
         messagingSenderId: "371386438968",
         appId: "1:371386438968:web:9fe73b273276e8c9fcddcd",
-        measurementId: "G-D6QTKSBVV9"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
+        measurementId: "G-D6QTKSBVV9",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
     </script>
-</body>
+  </body>
+</html>

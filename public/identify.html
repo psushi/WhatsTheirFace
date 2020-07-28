@@ -8,6 +8,8 @@
     <link rel="shortcut icon" href="icons/favicon-16x16.png" sizes="16x16" type="image/png">
     <link rel="shortcut icon" href="icons/favicon-32x32.png" sizes="32x32" type="image/png">
     <script src="scripts/identify.js" defer></script>
+    
+    
 </head>
 
 <body>
@@ -29,9 +31,14 @@
     <div class="progressContainer">
         <progress id="progressBar" value="0" max="100">0</progress>
     </div>
-
-    <p id="uploadDone">Upload finished!</p>
-
+    
+    <div id="spinner">
+        <div class="lds-roller" id="ldsRoller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div id=uploadDoneDiv>
+        <span id="uploadDone"> Upload finished!</span>
+    </div>
+    
     <div class="upload-image" id="uploadImage">
         <input class="inpFile" type="file" name="inpFile" id="inpFile" style="margin-left: 30px;">
         <button id="upload_button" type="button" onclick="upload()">Upload</button>
@@ -47,11 +54,7 @@
         <button id="submitInfo" type="button" onclick="submitInfo()">Add Entry</button>
     </div>
 
-    <div class="after-submit" id="afterSubmit">
-        <button id="uploadMore" type="button" onclick="window.location.href='upload.html'">Upload more images</button>
-        <button id="returnToMain" type="button" onclick="window.location.href='main.html'">Return to Main Page</button>
-
-    </div>
+   
     <div class="identifyBtn" id="identify-btn">
         <button type=button onclick="getData()">Identify</button>
     </div>
@@ -60,8 +63,15 @@
         <span>Name: <span> <span id="identityName"></span> <br> <span>Relationship: </span> <span id="identityInfo-1"></span>
         <br> <span>Confidence: </span> <span id="confidence"></span>
         
-        
     </div>
+    <br>
+
+    <div class="after-submit" id="afterSubmit">
+        <button id="uploadMore" type="button" onclick="window.location.href='identify.html'">Upload more images</button>
+        <button id="returnToMain" type="button" onclick="window.location.href='main.html'">Return to Main Page</button>
+    </div>
+
+    
 
 
 
@@ -74,8 +84,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
 
 
 
