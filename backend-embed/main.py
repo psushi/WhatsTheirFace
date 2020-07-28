@@ -2,7 +2,6 @@ import flask
 from facenet_pytorch import MTCNN, InceptionResnetV1
 import torch
 import numpy as np
-import pandas as pd
 from imageio import imread
 
 
