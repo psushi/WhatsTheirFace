@@ -180,7 +180,6 @@ function identify() {
   var sum = 0;
 
   for (let embeds of loneGlobalVar.userEmbeddings) {
-    console.log("embeds: " + embeds + "   new:   " + loneGlobalVar.new_embed);
     embeds = nj.array(embeds);
     let diff = embeds.subtract(njnew_embed);
     diff = diff.pow(2);
