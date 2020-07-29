@@ -11,7 +11,7 @@ html {
   /*background: linear-gradient(35deg, #fc466b, #3f5efb);*/
   background-color: #fff000;
   /*background-image: linear-gradient(35deg, #fff000 0%, #ed008c 75%);*/
-  background-image: linear-gradient(35deg, rgb(239, 207, 28) 0%, #ed008c 75%);
+  background-image: linear-gradient(35deg, rgb(239, 207, 28) 0%, #ed008a 75%);
 }
 
 #heading {
