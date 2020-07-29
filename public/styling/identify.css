@@ -8,7 +8,10 @@ body {
 html {
   min-height: 100%;
   width: 100%;
-  background: linear-gradient(35deg, #fc466b, #3f5efb);
+  /*background: linear-gradient(35deg, #fc466b, #3f5efb);*/
+  background-color: #fff000;
+  /*background-image: linear-gradient(35deg, #fff000 0%, #ed008c 75%);*/
+  background-image: linear-gradient(35deg, rgb(239, 207, 28) 0%, #ed008c 75%);
 }
 
 #heading {
@@ -118,7 +121,7 @@ input {
 
 #uploadDone {
   display: none;
-  color: rgb(255, 90, 180);
+  color: white;
   font-weight: bold;
 }
 

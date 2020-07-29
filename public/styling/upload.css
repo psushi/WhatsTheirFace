@@ -1,185 +1,183 @@
 body {
-    font-family: "Raleway";
-    font-size: 22px;
-    margin: 0px;
-    padding:0px;
-    
+  font-family: "Raleway";
+  font-size: 22px;
+  margin: 0px;
+  padding: 0px;
 }
-
+html {
+  min-height: 100%;
+  width: 100%;
+  background: linear-gradient(35deg, #e100ff 0%, #7f00ff 75%);
+}
+#heading {
+  color: white;
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
 
 .upload-image {
-    font-family: "Raleway";
-    font-size: 22px;
-    margin: 0px auto;
-    padding:50px;
-    text-align: center;
+  font-family: "Raleway";
+  font-size: 22px;
+  margin: 0px auto;
+  padding: 50px;
+  text-align: center;
 }
 
-button, input {
-    font-family: "Raleway";
-    font-weight: 700;
-    font-size: 22px;
+button,
+input {
+  font-family: "Raleway";
+  font-weight: 700;
+  font-size: 22px;
 }
-
 
 .upload-image button {
-    background:  rgb(140,50,255);
-    color:#fff;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid  rgb(140,50,255);
-    border-radius: 5px;
-    transition: 0.3s; 
-    -webkit-transition:0.3s;
-    -moz-transition: 0.3s;
-    
-
-} 
-
-.upload-image button:hover {
-    background: white;
-    color: rgb(140,50,255);
-   
-
+  background: transparent;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 0px;
+  border-radius: 5px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  /*box-shadow:5px 5px 5px  rgb(68, 68, 66)*/
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.1), 0 6.7px 5.3px rgba(0, 0, 0, 0.1),
+    0 12.5px 10px rgba(0, 0, 0, 0.1), 0 22.3px 17.9px rgba(0, 0, 0, 0.1),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.1), 0 100px 80px rgba(0, 0, 0, 0.1),
+    0 -2.8px 10px rgba(0, 0, 0, 0.1);
 }
 
-.upload-image  input{
-    background: rgb(140,50,255);
-    color:#fff;
-    padding: 10px;
-    margin-bottom: 10px;
-    border:  rgb(140,50,255);
-    border-radius: 5px;
-    transition: 0.3s; 
-    -webkit-transition:0.3s;
-    -moz-transition: 0.3s;
+.upload-image button:hover {
+  background: white;
+  color: rgb(140, 50, 255);
+}
 
+.upload-image input {
+  background: transparent;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  /*box-shadow:5px 5px 5px  rgb(68, 68, 66) ;*/
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.1), 0 6.7px 5.3px rgba(0, 0, 0, 0.1),
+    0 12.5px 10px rgba(0, 0, 0, 0.1), 0 22.3px 17.9px rgba(0, 0, 0, 0.1),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.1), 0 100px 80px rgba(0, 0, 0, 0.1),
+    0 -2.8px 10px rgba(0, 0, 0, 0.1);
 }
 
 .upload-blob circle {
-    stroke: rgb(140,50,255);
-    stroke-width:0.3;
-    fill:rgb(140,50,255);
-    transition: 0.3s;
-    -webkit-transition:0.3s ;
-    -moz-transition:0.3s;
-					
+  stroke: rgb(140, 50, 255);
+  stroke-width: 0.3;
+  fill: rgb(140, 50, 255);
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
 }
 
-
 .image-preview {
-    margin: 20px;
-    width: 400px; 
-    height: 400px;
-    border:8px solid rgb(140,50,255);
-    border-radius: 50%;
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-    background-color: white;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    color:#cccccc;
-    font-weight: bold;
-
+  margin: 20px;
+  width: 400px;
+  height: 400px;
+  border: 8px solid rgb(140, 50, 255);
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cccccc;
+  font-weight: bold;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.3), 0 6.7px 5.3px rgba(0, 0, 0, 0.3),
+    0 12.5px 10px rgba(0, 0, 0, 0.3), 0 22.3px 17.9px rgba(0, 0, 0, 0.1),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.1), 0 100px 80px rgba(0, 0, 0, 0.1),
+    0 -10.8px 10px rgba(0, 0, 0, 0.3);
 }
 
 .image-preview__image {
-    display: none;
-    width : 100%;
-    object-fit: contain;
-    
+  display: none;
+  width: 100%;
+  object-fit: contain;
 }
 
 #progressBar {
-    width: 200px;
-    display: none;
-    
+  width: 200px;
+  display: none;
 }
 
 .progressContainer {
-    text-align: center;
-    
+  text-align: center;
 }
 
 #uploadDone {
-    text-align: center;
-    display:none;
-    color:rgb(255,90,180);
-    font-weight: bold;
+  text-align: center;
+  display: none;
+  color: rgb(255, 90, 180);
+  font-weight: bold;
 }
 
 #userInfo {
-    text-align: center;
-    width:100%;
-    display: none;
-    
-   
-
-    
+  text-align: center;
+  width: 100%;
+  display: none;
 }
 
 .user-info input {
-    width:20%;
-    padding:5px;
-    margin-bottom: 10px;
-    border: 1px solid rgb(140,50,255);
-    border-radius: 5px;
-
+  width: 20%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid rgb(140, 50, 255);
+  border-radius: 5px;
 }
 
-.user-info span  {
-    background-color:rgb(140,50,255);
-    border-radius: 5px;
-    padding: 10px;
-    color:white;
+.user-info span {
+  background-color: rgb(140, 50, 255);
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
 }
 
 .user-info button {
-    background-color:rgb(140,50,255);
-    border-radius: 5px;
-    padding: 10px;
-    color:white;
-    border: 1px solid rgb(140,50,255);
-    margin-top: 10px;
-    -moz-transition: 0.3s;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-    cursor: pointer;
-
+  background-color: rgb(140, 50, 255);
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  border: 1px solid rgb(140, 50, 255);
+  margin-top: 10px;
+  -moz-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .user-info button:hover {
-    background-color: white;
-    color:rgb(140,50,255);
+  background-color: white;
+  color: rgb(140, 50, 255);
 }
 
 .after-submit button {
-    background-color:rgb(255,90,180);
-    border-radius: 5px;
-    padding: 10px;
-    color:white;
-    border: 1px solid rgb(255,90,180);
-    margin-top: 10px;
-    -moz-transition: 0.3s;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-    cursor: pointer;
-
+  background-color: rgb(255, 90, 180);
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  border: 1px solid rgb(255, 90, 180);
+  margin-top: 10px;
+  -moz-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .after-submit button:hover {
-    background-color: white;
-    color:rgb(255,90,180);
+  background-color: white;
+  color: rgb(255, 90, 180);
 }
 
 .after-submit {
-    text-align: center;
-    display:none;
+  text-align: center;
+  display: none;
 }
-
-
-
-
