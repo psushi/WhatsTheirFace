@@ -1,27 +1,24 @@
 body {
-	font-family: "Raleway";
-	font-size: 22px;
+  font-family: "Raleway";
+  font-size: 22px;
 }
 
 .user-info {
-	margin: 0px auto;
-	margin-top: 10px;
-	text-align: right ;
+  margin: 0px auto;
+  margin-top: 10px;
+  text-align: right;
 }
 
 .user-info button {
-	background: gray;
-	color: white;
-	border-radius: 30px;
-	border: 0px;
-	transition:0.3s;
-	-webkit-transition: 0.3s;
-	-moz-transition: 0.3s;
+  background: gray;
+  color: white;
+  border-radius: 30px;
+  border: 0px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
 }
 
 .user-info button:hover {
-	background: rgb(243, 53, 53);
-
+  background: rgb(243, 53, 53);
 }
-
-
