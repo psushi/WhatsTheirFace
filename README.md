@@ -1,6 +1,6 @@
 # WhatsTheirFace
 
-## Web app for Face Recognition.
+## Web app for Facial Recognition.
 - Upload photos of people, and set up your own small face recognition system. 
 - Create a personal database of photos (not added yet).
 - Only one photo per person needed.
